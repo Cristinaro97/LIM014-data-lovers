@@ -33,9 +33,6 @@ const searchBar = document.querySelector("#search-bar");
 const selectOrder = document.querySelector(".select--order");
 
 
-
-
-
 // Mostrar atletas en las tarjetas y pop up
 const showAthletes = (data) => {
     resultsPage.innerHTML=''
@@ -250,3 +247,15 @@ function statsPage() {
 }
 
 
+// selector
+const menu = document.querySelector('.hamburger-menu');
+
+// method
+function toggleMenu (event) {
+  this.classList.toggle('is-active');
+  document.querySelector( ".menuppal" ).classList.toggle("is_active");
+  event.preventDefault();
+}
+
+// event
+menu.addEventListener('click', toggleMenu, false);

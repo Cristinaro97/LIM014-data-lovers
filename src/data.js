@@ -54,3 +54,10 @@ export const mapByKey = (data, key) => {
     .map(athletes => athletes[key])
     .sort((a, b) => a > b ? 1 : -1);
 }
+
+export const menu = document.querySelector('.hamburger-menu')
+function toggleMenu (event) {
+    this.classList.toggle('is-active');
+    document.querySelector( ".menuppal" ).classList.toggle("is_active");
+    event.preventDefault();
+  }
