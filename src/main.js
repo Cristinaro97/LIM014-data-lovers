@@ -246,16 +246,32 @@ function statsPage() {
     document.querySelector(".home-main").style.display = "none";
 }
 
+function myFunction() {
+    var x = document.querySelector(".hambuger-menu");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
 
-// selector
-const menu = document.querySelector('.hamburger-menu');
+//Hamburguer
+const iconMenu = document.querySelector('#icon-menu'),
+     menu = document.querySelector('#menu');
 
-// method
-function toggleMenu (event) {
-  this.classList.toggle('is-active');
-  document.querySelector( ".menuppal" ).classList.toggle("is_active");
-  event.preventDefault();
-}
+iconMenu.addEventListener('click', (e) => {
 
-// event
-menu.addEventListener('click', toggleMenu, false);
+    //Alternamos estilos para el menu y body 
+    menu.classList.toggle('active');
+    document.body.classList.toggle('opacity');
+
+    //Alternamos su atributo 'src' para el ícono del menú
+    const rutaActual = e.target.getAttribute('src');
+
+    if(rutaActual == 'img/open-menu-hamburguer.png'){
+        e.target.setAttribute('src','img/open-menu-hamburguer2.png');
+    }else{
+        e.target.setAttribute('src','img/open-menu-hamburguer.png');
+    }
+
+});
