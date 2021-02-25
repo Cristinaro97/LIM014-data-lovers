@@ -1,4 +1,4 @@
-import {filterByKey, filterByName, filterFemale, filterMale, filterMedal, mapByKey, sortByName, sortByTotal} from './data.js';
+import { filterByKey, filterByName, filterFemale, filterMale, filterMedal, mapByKey, sortByName, sortByTotal } from './data.js';
 import data from './data/athletes/athletes.js';
 
 
@@ -33,9 +33,11 @@ const searchBar = document.querySelector("#search-bar");
 const selectOrder = document.querySelector(".select--order");
 
 
+
+
 // Mostrar atletas en las tarjetas y pop up
 const showAthletes = (data) => {
-    resultsPage.innerHTML=''
+    resultsPage.innerHTML = ''
     let counter = 0;
     data.forEach((athletes) => {
         counter++;
@@ -79,7 +81,7 @@ popUp.addEventListener("click", e => {
 const showAthletesFullData = (athletes) => {
     let content = `
             <div class="card__title">${athletes.name}</div>
-            <div class="card__content">
+            <div class="card__content popupText">
                 <li>Gender: ${athletes.gender}</li>
                 <li>Height: ${athletes.height}</li>
                 <li>Weight: ${athletes.weight}</li>
@@ -141,7 +143,7 @@ listOfOptions(selectEvent, events);
 
 
 
-function includingAllFilters () {
+function includingAllFilters() {
     const sportOption = selectSport.value;
     const teamOption = selectTeam.value;
     const eventOption = selectEvent.value;
@@ -171,36 +173,37 @@ selectMale.addEventListener("change", includingAllFilters);
 
 // Medallas
 /*El forEach llena el objeto vacío que es object medals y se crean los keywords*/
-let medals = []; 
-teams.forEach((team) => { 
+let medals = [];
+teams.forEach((team) => {
     let goldenMedals = filterMedal(athletesData, team, "Gold")
     let silverMedals = filterMedal(athletesData, team, "Silver")
     let bronzeMedals = filterMedal(athletesData, team, "Bronze")
-    let total = goldenMedals + silverMedals + bronzeMedals; 
+    let total = goldenMedals + silverMedals + bronzeMedals;
 
-    medals.push({country: team, 
-                golden: goldenMedals, 
-                silver: silverMedals, 
-                bronze: bronzeMedals, 
-                total: total}
-                )
+    medals.push({
+        country: team,
+        golden: goldenMedals,
+        silver: silverMedals,
+        bronze: bronzeMedals,
+        total: total
+    })
 });
 
 /*El forEach pinta la tabla con los objetos ya creados*/
 let medalsOrdered = sortByTotal(medals, 'dsc');
 
-medalsOrdered.forEach((obj) => { 
-    const container = document.createElement('tr');  
+medalsOrdered.forEach((obj) => {
+    const container = document.createElement('tr');
     const table = document.getElementById("bodytable");
     table.appendChild(container).innerHTML =
-     `<tr> 
+        `<tr> 
       <td> <strong>${obj.country}</strong> 
       </td><td>${obj.golden}</td>
       </td><td>${obj.silver}</td>
       </td><td>${obj.bronze}</td>
       </td><td>${obj.total}</td>
-      </tr>` 
-      
+      </tr>`
+
 });
 
 
@@ -246,32 +249,23 @@ function statsPage() {
     document.querySelector(".home-main").style.display = "none";
 }
 
-function myFunction() {
-    var x = document.querySelector(".hambuger-menu");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
-  }
-
-//Hamburguer
-const iconMenu = document.querySelector('#icon-menu'),
-     menu = document.querySelector('#menu');
-
-iconMenu.addEventListener('click', (e) => {
-
-    //Alternamos estilos para el menu y body 
-    menu.classList.toggle('active');
-    document.body.classList.toggle('opacity');
-
-    //Alternamos su atributo 'src' para el ícono del menú
-    const rutaActual = e.target.getAttribute('src');
-
-    if(rutaActual == 'img/open-menu-hamburguer.png'){
-        e.target.setAttribute('src','img/open-menu-hamburguer2.png');
-    }else{
-        e.target.setAttribute('src','img/open-menu-hamburguer.png');
-    }
-
-});
+const navSlide = () => {
+    const burger = document.querySelector('.nav__mobile');
+    const nav = document.querySelector('.nav__links');
+    const navLinks = document.querySelectorAll('.nav__links li');
+ 
+    burger.addEventListener('click', ()=>{
+        //Toggle Nav
+        nav.classList.toggle('nav-active');
+    
+        //Animate Links
+        navLinks.forEach((link, index)=>{
+            if (link.style.animation) {
+                link.style.animation ='';
+            } else {
+                link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.8}s`;
+            }
+        });
+    });
+}
+navSlide();
