@@ -22,10 +22,6 @@ nav {
     height: 150px;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> caad2a2fab9fd4db36370b6c20355c98a291b7d2
 
 .header__logo-area__logo {
     object-fit: contain;
@@ -78,61 +74,6 @@ a:hover:after {
 }*/
 
 
-<<<<<<< HEAD
-.bar1,
-.bar2,
-.bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: #333;
-    border-radius: 10px;
-    margin: 6px 0;
-    transition: 0.4s;
-}
-
-/*Estilos para el contenedor del Menú*/
-.cont-menu{
-    background-color: rgb(251, 255, 2);
-    box-shadow: 2px 0px 5px 2px rgb(66,66,66);
-    width: 400px;
-    height: 100vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: all.5s ease;
-}
-
-/*Estilos por agregar en JavaScript*/
-.active{
-    transform: translate(-600px);
-}
-
-.opacity{
-    background-color: rgb(0,0,0,0,5);
-    transition: all .5s ease;
-}
-/*Estilos para el listado del Menú*/
-.cont-menu ul{
-    padding: 100px 0px 20px 0px;
-    list-style: none;
-}
-
-.icono-menu ul li{
-    color: white;
-    display: block;
-    font-size: 25px;
-    text-decoration: none;
-    padding: 10px 50px;
-    cursor: pointer;
-
-}
-
-.cont-menu ul li:hover{
-    background-color: rgb(228,228,228);
-    color: rgb(42,42,42);
-}
-=======
->>>>>>> caad2a2fab9fd4db36370b6c20355c98a291b7d2
 
 /* Footer */
 
@@ -192,10 +133,6 @@ a:hover:after {
     align-items: center;
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> caad2a2fab9fd4db36370b6c20355c98a291b7d2
 
 .home-main__intro__content-area__image {
     height: 100%;
@@ -263,11 +200,6 @@ a:hover:after {
     display: flex;
 }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> caad2a2fab9fd4db36370b6c20355c98a291b7d2
 .page-search__main__filter-area {
     flex: 1;
 }
@@ -279,11 +211,6 @@ a:hover:after {
     margin: 30px;
 }
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> caad2a2fab9fd4db36370b6c20355c98a291b7d2
 .page-search__main__results-area {
     flex: 2;
 }
